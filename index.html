@@ -119,6 +119,7 @@
             width: 0;
             display: inline-block;
             font-family: 'Share Tech Mono', monospace;
+            max-width: 100%;
         }
 
         /* Blinking cursor for title */
@@ -157,6 +158,10 @@
             text-transform: uppercase;
             letter-spacing: 2px;
             font-size: 0.875rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
         }
         .cta-btn:hover {
             background: rgba(0, 255, 65, 0.1);
@@ -197,6 +202,7 @@
         .social-btn {
             border: 1px solid rgba(0, 212, 255, 0.2);
             transition: all 0.3s ease;
+            text-decoration: none;
         }
         .social-btn:hover {
             border-color: var(--neon-cyan);
@@ -242,6 +248,33 @@
             color: var(--neon-green);
             text-shadow: 0 0 8px rgba(0, 255, 65, 0.3);
         }
+
+        /* Quote card styling */
+        .quote-card {
+            border-left: 3px solid var(--neon-green);
+            background: rgba(0, 255, 65, 0.02);
+            position: relative;
+        }
+        .quote-card::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            left: 12px;
+            font-size: 3rem;
+            color: rgba(0, 255, 65, 0.15);
+            font-family: 'Share Tech Mono', monospace;
+        }
+
+        /* Credential badge */
+        .credential-badge {
+            border: 1px solid rgba(0, 212, 255, 0.15);
+            background: rgba(0, 212, 255, 0.03);
+            transition: all 0.3s ease;
+        }
+        .credential-badge:hover {
+            border-color: rgba(0, 212, 255, 0.4);
+            box-shadow: 0 0 8px rgba(0, 212, 255, 0.1);
+        }
     </style>
 </head>
 <body data-id="0" class="min-h-screen">
@@ -261,7 +294,7 @@
                 <a data-id="8" href="#topics-section-q5r2" class="nav-link font-mono text-text-secondary text-sm tracking-wide">Topics</a>
                 <a data-id="9" href="#author-section-v9t4" class="nav-link font-mono text-text-secondary text-sm tracking-wide">Author</a>
             </div>
-            <button data-id="10" id="mobile-menu-btn-w2e5" class="md:hidden p-2 text-neon-green" aria-label="Open menu">
+            <button data-id="10" id="mobile-menu-btn-w2e5" class="md:hidden p-2 text-neon-green min-h-[44px] min-w-[44px] flex items-center justify-center" aria-label="Open menu">
                 <i data-id="11" data-lucide="menu" class="w-6 h-6"></i>
             </button>
         </div>
@@ -269,7 +302,7 @@
         <div data-id="12" id="mobile-menu-k4f8" class="hidden md:hidden bg-bg-card border-t border-neon-green/10">
             <div data-id="13" class="flex flex-col px-6 py-4 gap-4">
                 <div data-id="14" class="flex justify-end">
-                    <button data-id="15" id="mobile-menu-close-z7n1" class="p-2 text-neon-green" aria-label="Close menu">
+                    <button data-id="15" id="mobile-menu-close-z7n1" class="p-2 text-neon-green min-h-[44px] min-w-[44px] flex items-center justify-center" aria-label="Close menu">
                         <i data-id="16" data-lucide="x" class="w-6 h-6"></i>
                     </button>
                 </div>
@@ -286,7 +319,7 @@
             <div data-id="22" class="scanline-overlay"></div>
             <div data-id="23" class="relative z-10 max-w-5xl mx-auto px-5 md:px-6 py-16 md:py-24 text-center">
                 <!-- Terminal Loading Banner -->
-                <div data-id="24" class="mb-8 md:mb-10 inline-block bg-bg-card/80 border border-neon-green/20 rounded px-4 md:px-6 py-3">
+                <div data-id="24" class="mb-8 md:mb-10 inline-block bg-bg-card/80 border border-neon-green/20 rounded px-4 md:px-6 py-3 max-w-full overflow-hidden">
                     <span data-id="25" class="typing-text text-neon-green text-xs md:text-sm">&gt; LOADING: Bug Bounty Guidebook... [OK]</span>
                 </div>
 
@@ -312,189 +345,225 @@
 
                 <!-- Author -->
                 <p data-id="36" id="hero-author-f2g5" class="font-mono glow-cyan text-sm md:text-lg mb-10 tracking-widest">
-                    by Marcus Perez
+                    by Marcus N. Perez
                 </p>
 
                 <!-- CTA Buttons -->
-                <div data-id="37" class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                    <button data-id="38" id="cta-get-book-h8j1" class="cta-btn min-h-[44px] min-w-[44px]">[ GET THE BOOK ]</button>
-                    <button data-id="39" id="cta-learn-more-n6k9" class="cta-btn cta-btn-cyan min-h-[44px] min-w-[44px]">[ LEARN MORE ]</button>
+                <div data-id="37" class="flex flex-col sm:flex-row gap-4 justify-center items-center flex-wrap">
+                    <a data-id="38" id="cta-get-book-h8j1" href="https://www.amazon.com/dp/B0CXWY6F7K" target="_blank" rel="noopener noreferrer" class="cta-btn min-h-[44px] min-w-[44px]">
+                        <i data-id="39" data-lucide="book-open" class="w-4 h-4 mr-2"></i> [GET THE BOOK →]
+                    </a>
+                    <a data-id="40" id="cta-learn-more-n6k9" href="#about-section-m3p7" class="cta-btn cta-btn-cyan min-h-[44px] min-w-[44px]">[ LEARN MORE ]</a>
+                    <a data-id="41" href="https://marcusnp11-cyber.github.io/marcusnp11-cyber/" target="_blank" rel="noopener noreferrer" class="cta-btn cta-btn-cyan min-h-[44px] min-w-[44px]">
+                        <i data-id="42" data-lucide="globe" class="w-4 h-4 mr-2"></i> [ PORTFOLIO ]
+                    </a>
                 </div>
 
                 <!-- Terminal decoration -->
-                <div data-id="40" class="mt-12 md:mt-16 font-mono text-text-muted text-xs opacity-60">
-                    <span data-id="41" class="text-neon-green/50">&gt;</span> system.status: <span data-id="42" class="text-neon-green/70">ONLINE</span> &nbsp;|&nbsp; protocol: <span data-id="43" class="text-neon-cyan/70">SECURE</span> &nbsp;|&nbsp; access: <span data-id="44" class="text-neon-green/70">GRANTED</span>
+                <div data-id="43" class="mt-12 md:mt-16 font-mono text-text-muted text-xs opacity-60">
+                    <span data-id="44" class="text-neon-green/50">&gt;</span> system.status: <span data-id="45" class="text-neon-green/70">ONLINE</span> &nbsp;|&nbsp; protocol: <span data-id="46" class="text-neon-cyan/70">SECURE</span> &nbsp;|&nbsp; access: <span data-id="47" class="text-neon-green/70">GRANTED</span>
                 </div>
             </div>
         </section>
 
         <!-- ===================== ABOUT SECTION ===================== -->
-        <section data-id="45" id="about-section-m3p7" class="relative z-10 py-20 md:py-28 fade-section">
-            <div data-id="46" class="max-w-4xl mx-auto px-5 md:px-6">
+        <section data-id="48" id="about-section-m3p7" class="relative z-10 py-20 md:py-28 fade-section">
+            <div data-id="49" class="max-w-4xl mx-auto px-5 md:px-6">
                 <!-- Section Header -->
-                <div data-id="47" class="mb-10 md:mb-14">
-                    <p data-id="48" class="section-cmd text-sm md:text-base mb-3 opacity-70">user@kali:~$</p>
-                    <h2 data-id="49" id="about-heading-p1s6" class="section-cmd text-xl md:text-3xl font-bold">$ cat about.txt</h2>
-                    <div data-id="50" class="w-16 h-0.5 bg-neon-green/50 mt-4 shadow-[0_0_8px_rgba(0,255,65,0.3)]"></div>
+                <div data-id="50" class="mb-10 md:mb-14">
+                    <p data-id="51" class="section-cmd text-sm md:text-base mb-3 opacity-70">user@kali:~$</p>
+                    <h2 data-id="52" id="about-heading-p1s6" class="section-cmd text-xl md:text-3xl font-bold">$ cat about.txt</h2>
+                    <div data-id="53" class="w-16 h-0.5 bg-neon-green/50 mt-4 shadow-[0_0_8px_rgba(0,255,65,0.3)]"></div>
                 </div>
 
                 <!-- About Card -->
-                <div data-id="51" class="bg-bg-card border border-neon-green/10 rounded-lg p-6 md:p-10 card-glow">
-                    <div data-id="52" class="space-y-5 text-text-primary text-sm md:text-base leading-relaxed font-body">
-                        <p data-id="53">
-                            <span data-id="54" class="text-neon-green font-mono text-xs mr-2">&gt;</span>
-                            In a world where digital threats are evolving faster than ever, the demand for skilled ethical hackers has never been higher. <strong data-id="55" class="text-neon-green/80">The Guidebook to The Fundamentals of Bug Bounty Hunting</strong> is your comprehensive entry point into the world of professional vulnerability research and responsible disclosure.
-                        </p>
+                <div data-id="54" class="bg-bg-card border border-neon-green/10 rounded-lg p-6 md:p-10 card-glow">
+                    <div data-id="55" class="space-y-5 text-text-primary text-sm md:text-base leading-relaxed font-body">
                         <p data-id="56">
                             <span data-id="57" class="text-neon-green font-mono text-xs mr-2">&gt;</span>
+                            In a world where digital threats are evolving faster than ever, the demand for skilled ethical hackers has never been higher. <strong data-id="58" class="text-neon-green/80">The Guidebook to The Fundamentals of Bug Bounty Hunting</strong> is your comprehensive entry point into the world of professional vulnerability research and responsible disclosure.
+                        </p>
+                        <p data-id="59">
+                            <span data-id="60" class="text-neon-green font-mono text-xs mr-2">&gt;</span>
                             This book walks you through the complete lifecycle of a bug bounty engagement — from selecting the right target and performing thorough reconnaissance, to discovering critical vulnerabilities and writing reports that get rewarded. Every chapter is packed with real-world scenarios, practical techniques, and actionable checklists.
                         </p>
-                        <p data-id="58">
-                            <span data-id="59" class="text-neon-green font-mono text-xs mr-2">&gt;</span>
+                        <p data-id="61">
+                            <span data-id="62" class="text-neon-green font-mono text-xs mr-2">&gt;</span>
                             Whether you're a complete beginner curious about cybersecurity or a developer looking to understand the attacker's mindset, this guidebook bridges the gap between theory and practice. You'll learn the tools, methodologies, and thought processes used by professional ethical hackers on platforms like HackerOne, Bugcrowd, and Intigriti.
                         </p>
-                        <p data-id="60">
-                            <span data-id="61" class="text-neon-green font-mono text-xs mr-2">&gt;</span>
+                        <p data-id="63">
+                            <span data-id="64" class="text-neon-green font-mono text-xs mr-2">&gt;</span>
                             By the final page, you won't just understand bug bounty hunting — you'll be ready to start your own journey, earn rewards, and contribute to a more secure internet for everyone.
                         </p>
                     </div>
                     <!-- Terminal decoration -->
-                    <div data-id="62" class="mt-8 pt-6 border-t border-white/5 font-mono text-xs text-text-muted">
-                        <span data-id="63" class="text-neon-green/40">[EOF]</span> — about.txt — 4 paragraphs, 1 mission
+                    <div data-id="65" class="mt-8 pt-6 border-t border-white/5 font-mono text-xs text-text-muted">
+                        <span data-id="66" class="text-neon-green/40">[EOF]</span> — about.txt — 4 paragraphs, 1 mission
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- ===================== TOPICS SECTION ===================== -->
-        <section data-id="64" id="topics-section-q5r2" class="relative z-10 py-20 md:py-28 fade-section">
-            <div data-id="65" class="max-w-5xl mx-auto px-5 md:px-6">
+        <section data-id="67" id="topics-section-q5r2" class="relative z-10 py-20 md:py-28 fade-section">
+            <div data-id="68" class="max-w-5xl mx-auto px-5 md:px-6">
                 <!-- Section Header -->
-                <div data-id="66" class="mb-10 md:mb-14">
-                    <p data-id="67" class="section-cmd text-sm md:text-base mb-3 opacity-70">user@kali:~/guidebook$</p>
-                    <h2 data-id="68" id="topics-heading-y3w7" class="section-cmd text-xl md:text-3xl font-bold">$ ls topics/</h2>
-                    <div data-id="69" class="w-16 h-0.5 bg-neon-cyan/50 mt-4 shadow-[0_0_8px_rgba(0,212,255,0.3)]"></div>
+                <div data-id="69" class="mb-10 md:mb-14">
+                    <p data-id="70" class="section-cmd text-sm md:text-base mb-3 opacity-70">user@kali:~/guidebook$</p>
+                    <h2 data-id="71" id="topics-heading-y3w7" class="section-cmd text-xl md:text-3xl font-bold">$ ls topics/</h2>
+                    <div data-id="72" class="w-16 h-0.5 bg-neon-cyan/50 mt-4 shadow-[0_0_8px_rgba(0,212,255,0.3)]"></div>
                 </div>
 
                 <!-- Topics Grid -->
-                <div data-id="70" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+                <div data-id="73" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
 
-                    <!-- Card 1 -->
-                    <div data-id="71" class="bg-bg-card rounded-lg p-6 md:p-8 card-glow group cursor-default">
-                        <div data-id="72" class="mb-5 w-12 h-12 rounded-lg bg-neon-green/5 border border-neon-green/20 flex items-center justify-center icon-badge">
-                            <i data-id="73" data-lucide="search" class="w-6 h-6 text-neon-green"></i>
+                    <!-- Card 1: Recon & OSINT -->
+                    <div data-id="74" class="bg-bg-card rounded-lg p-6 md:p-8 card-glow group cursor-default">
+                        <div data-id="75" class="mb-5 w-12 h-12 rounded-lg bg-neon-green/5 border border-neon-green/20 flex items-center justify-center icon-badge">
+                            <i data-id="76" data-lucide="search" class="w-6 h-6 text-neon-green"></i>
                         </div>
-                        <h3 data-id="74" class="font-mono text-neon-green text-sm md:text-base mb-3 tracking-wide">Reconnaissance & OSINT</h3>
-                        <p data-id="75" class="text-text-secondary text-xs md:text-sm leading-relaxed">Master passive and active information gathering. Map attack surfaces using open-source intelligence tools and techniques.</p>
+                        <h3 data-id="77" class="font-mono text-neon-green text-sm md:text-base mb-3 tracking-wide">Recon & OSINT</h3>
+                        <p data-id="78" class="text-text-secondary text-xs md:text-sm leading-relaxed">Master passive and active reconnaissance using frameworks and tools used by top hunters.</p>
                     </div>
 
-                    <!-- Card 2 -->
-                    <div data-id="76" class="bg-bg-card rounded-lg p-6 md:p-8 card-glow group cursor-default">
-                        <div data-id="77" class="mb-5 w-12 h-12 rounded-lg bg-neon-cyan/5 border border-neon-cyan/20 flex items-center justify-center icon-badge">
-                            <i data-id="78" data-lucide="globe" class="w-6 h-6 text-neon-cyan"></i>
+                    <!-- Card 2: High-Impact Vulnerability Classes -->
+                    <div data-id="79" class="bg-bg-card rounded-lg p-6 md:p-8 card-glow group cursor-default">
+                        <div data-id="80" class="mb-5 w-12 h-12 rounded-lg bg-neon-cyan/5 border border-neon-cyan/20 flex items-center justify-center icon-badge">
+                            <i data-id="81" data-lucide="bug" class="w-6 h-6 text-neon-cyan"></i>
                         </div>
-                        <h3 data-id="79" class="font-mono text-neon-cyan text-sm md:text-base mb-3 tracking-wide">Web Application Security</h3>
-                        <p data-id="80" class="text-text-secondary text-xs md:text-sm leading-relaxed">Deep dive into XSS, CSRF, SQL injection, SSRF, IDOR, and other critical web vulnerabilities that earn the highest bounties.</p>
+                        <h3 data-id="82" class="font-mono text-neon-cyan text-sm md:text-base mb-3 tracking-wide">High-Impact Vulns</h3>
+                        <p data-id="83" class="text-text-secondary text-xs md:text-sm leading-relaxed">Deep dives into IDOR, SSRF, XSS, SQLi, and other critical vulnerability classes.</p>
                     </div>
 
-                    <!-- Card 3 -->
-                    <div data-id="81" class="bg-bg-card rounded-lg p-6 md:p-8 card-glow group cursor-default">
-                        <div data-id="82" class="mb-5 w-12 h-12 rounded-lg bg-neon-green/5 border border-neon-green/20 flex items-center justify-center icon-badge">
-                            <i data-id="83" data-lucide="bug" class="w-6 h-6 text-neon-green"></i>
+                    <!-- Card 3: Web & API Security -->
+                    <div data-id="84" class="bg-bg-card rounded-lg p-6 md:p-8 card-glow group cursor-default">
+                        <div data-id="85" class="mb-5 w-12 h-12 rounded-lg bg-neon-green/5 border border-neon-green/20 flex items-center justify-center icon-badge">
+                            <i data-id="86" data-lucide="globe" class="w-6 h-6 text-neon-green"></i>
                         </div>
-                        <h3 data-id="84" class="font-mono text-neon-green text-sm md:text-base mb-3 tracking-wide">Vulnerability Discovery</h3>
-                        <p data-id="85" class="text-text-secondary text-xs md:text-sm leading-relaxed">Learn systematic approaches to finding bugs that others miss. Develop a hacker's intuition through proven methodologies.</p>
+                        <h3 data-id="87" class="font-mono text-neon-green text-sm md:text-base mb-3 tracking-wide">Web & API Security</h3>
+                        <p data-id="88" class="text-text-secondary text-xs md:text-sm leading-relaxed">Attack surface mapping for modern web applications and REST/GraphQL APIs.</p>
                     </div>
 
-                    <!-- Card 4 -->
-                    <div data-id="86" class="bg-bg-card rounded-lg p-6 md:p-8 card-glow group cursor-default">
-                        <div data-id="87" class="mb-5 w-12 h-12 rounded-lg bg-neon-cyan/5 border border-neon-cyan/20 flex items-center justify-center icon-badge">
-                            <i data-id="88" data-lucide="file-text" class="w-6 h-6 text-neon-cyan"></i>
+                    <!-- Card 4: Report Writing -->
+                    <div data-id="89" class="bg-bg-card rounded-lg p-6 md:p-8 card-glow group cursor-default">
+                        <div data-id="90" class="mb-5 w-12 h-12 rounded-lg bg-neon-cyan/5 border border-neon-cyan/20 flex items-center justify-center icon-badge">
+                            <i data-id="91" data-lucide="file-text" class="w-6 h-6 text-neon-cyan"></i>
                         </div>
-                        <h3 data-id="89" class="font-mono text-neon-cyan text-sm md:text-base mb-3 tracking-wide">Writing Bug Reports</h3>
-                        <p data-id="90" class="text-text-secondary text-xs md:text-sm leading-relaxed">Craft compelling vulnerability reports that clearly communicate impact, reproduce steps, and maximize your payouts.</p>
+                        <h3 data-id="92" class="font-mono text-neon-cyan text-sm md:text-base mb-3 tracking-wide">Report Writing</h3>
+                        <p data-id="93" class="text-text-secondary text-xs md:text-sm leading-relaxed">Write structured, clear bug reports that get triaged, accepted, and paid.</p>
                     </div>
 
-                    <!-- Card 5 -->
-                    <div data-id="91" class="bg-bg-card rounded-lg p-6 md:p-8 card-glow group cursor-default">
-                        <div data-id="92" class="mb-5 w-12 h-12 rounded-lg bg-neon-green/5 border border-neon-green/20 flex items-center justify-center icon-badge">
-                            <i data-id="93" data-lucide="coins" class="w-6 h-6 text-neon-green"></i>
+                    <!-- Card 5: Bug Bounty Platforms -->
+                    <div data-id="94" class="bg-bg-card rounded-lg p-6 md:p-8 card-glow group cursor-default">
+                        <div data-id="95" class="mb-5 w-12 h-12 rounded-lg bg-neon-green/5 border border-neon-green/20 flex items-center justify-center icon-badge">
+                            <i data-id="96" data-lucide="coins" class="w-6 h-6 text-neon-green"></i>
                         </div>
-                        <h3 data-id="94" class="font-mono text-neon-green text-sm md:text-base mb-3 tracking-wide">Bug Bounty Platforms</h3>
-                        <p data-id="95" class="text-text-secondary text-xs md:text-sm leading-relaxed">Navigate HackerOne, Bugcrowd, Intigriti, and private programs. Learn how to choose targets and build your reputation.</p>
+                        <h3 data-id="97" class="font-mono text-neon-green text-sm md:text-base mb-3 tracking-wide">Bug Bounty Platforms</h3>
+                        <p data-id="98" class="text-text-secondary text-xs md:text-sm leading-relaxed">Navigate HackerOne, Bugcrowd, Intigriti, and private programs effectively.</p>
                     </div>
 
-                    <!-- Card 6 -->
-                    <div data-id="96" class="bg-bg-card rounded-lg p-6 md:p-8 card-glow group cursor-default">
-                        <div data-id="97" class="mb-5 w-12 h-12 rounded-lg bg-neon-cyan/5 border border-neon-cyan/20 flex items-center justify-center icon-badge">
-                            <i data-id="98" data-lucide="shield-check" class="w-6 h-6 text-neon-cyan"></i>
+                    <!-- Card 6: Case Studies -->
+                    <div data-id="99" class="bg-bg-card rounded-lg p-6 md:p-8 card-glow group cursor-default">
+                        <div data-id="100" class="mb-5 w-12 h-12 rounded-lg bg-neon-cyan/5 border border-neon-cyan/20 flex items-center justify-center icon-badge">
+                            <i data-id="101" data-lucide="folder-open" class="w-6 h-6 text-neon-cyan"></i>
                         </div>
-                        <h3 data-id="99" class="font-mono text-neon-cyan text-sm md:text-base mb-3 tracking-wide">Defensive Thinking</h3>
-                        <p data-id="100" class="text-text-secondary text-xs md:text-sm leading-relaxed">Think like both attacker and defender. Understand secure coding, threat modeling, and how to protect the systems you test.</p>
+                        <h3 data-id="102" class="font-mono text-neon-cyan text-sm md:text-base mb-3 tracking-wide">Case Studies</h3>
+                        <p data-id="103" class="text-text-secondary text-xs md:text-sm leading-relaxed">Real-world program walkthroughs and exploitation techniques from actual findings.</p>
                     </div>
 
                 </div>
 
                 <!-- Terminal decoration -->
-                <div data-id="101" class="mt-8 font-mono text-xs text-text-muted text-center opacity-60">
-                    <span data-id="102" class="text-neon-green/40">6 items</span> — drwxr-xr-x — total 42K
+                <div data-id="104" class="mt-8 font-mono text-xs text-text-muted text-center opacity-60">
+                    <span data-id="105" class="text-neon-green/40">6 items</span> — drwxr-xr-x — total 42K
                 </div>
             </div>
         </section>
 
         <!-- ===================== AUTHOR SECTION ===================== -->
-        <section data-id="103" id="author-section-v9t4" class="relative z-10 py-20 md:py-28 fade-section">
-            <div data-id="104" class="max-w-4xl mx-auto px-5 md:px-6">
+        <section data-id="106" id="author-section-v9t4" class="relative z-10 py-20 md:py-28 fade-section">
+            <div data-id="107" class="max-w-4xl mx-auto px-5 md:px-6">
                 <!-- Section Header -->
-                <div data-id="105" class="mb-10 md:mb-14">
-                    <p data-id="106" class="section-cmd text-sm md:text-base mb-3 opacity-70">user@kali:~$</p>
-                    <h2 data-id="107" id="author-heading-c8u2" class="section-cmd text-xl md:text-3xl font-bold">$ whoami</h2>
-                    <div data-id="108" class="w-16 h-0.5 bg-neon-green/50 mt-4 shadow-[0_0_8px_rgba(0,255,65,0.3)]"></div>
+                <div data-id="108" class="mb-10 md:mb-14">
+                    <p data-id="109" class="section-cmd text-sm md:text-base mb-3 opacity-70">user@kali:~$</p>
+                    <h2 data-id="110" id="author-heading-c8u2" class="section-cmd text-xl md:text-3xl font-bold">$ whoami</h2>
+                    <div data-id="111" class="w-16 h-0.5 bg-neon-green/50 mt-4 shadow-[0_0_8px_rgba(0,255,65,0.3)]"></div>
                 </div>
 
                 <!-- Author Card -->
-                <div data-id="109" class="bg-bg-card border border-neon-green/10 rounded-lg p-6 md:p-10 card-glow">
-                    <div data-id="110" class="flex flex-col md:flex-row gap-8 items-center md:items-start">
+                <div data-id="112" class="bg-bg-card border border-neon-green/10 rounded-lg p-6 md:p-10 card-glow">
+                    <div data-id="113" class="flex flex-col md:flex-row gap-8 items-center md:items-start">
                         <!-- Author Avatar -->
-                        <div data-id="111" class="flex-shrink-0">
-                            <div data-id="112" class="w-28 h-28 md:w-36 md:h-36 rounded-lg border-2 border-neon-green/30 bg-bg-elevated flex items-center justify-center shadow-[0_0_20px_rgba(0,255,65,0.1)]">
-                                <svg data-id="113" width="80" height="80" viewBox="0 0 80 80" fill="none" class="opacity-80">
-                                    <circle data-id="114" cx="40" cy="28" r="14" stroke="#00ff41" stroke-width="1.5" fill="rgba(0,255,65,0.05)"/>
-                                    <path data-id="115" d="M15 68 C15 50 25 42 40 42 C55 42 65 50 65 68" stroke="#00ff41" stroke-width="1.5" fill="rgba(0,255,65,0.03)"/>
-                                    <text data-id="116" x="40" y="74" text-anchor="middle" fill="#00ff41" font-family="Share Tech Mono, monospace" font-size="7" opacity="0.6">M.PEREZ</text>
+                        <div data-id="114" class="flex-shrink-0">
+                            <div data-id="115" class="w-28 h-28 md:w-36 md:h-36 rounded-lg border-2 border-neon-green/30 bg-bg-elevated flex items-center justify-center shadow-[0_0_20px_rgba(0,255,65,0.1)]">
+                                <svg data-id="116" width="80" height="80" viewBox="0 0 80 80" fill="none" class="opacity-80">
+                                    <circle data-id="117" cx="40" cy="28" r="14" stroke="#00ff41" stroke-width="1.5" fill="rgba(0,255,65,0.05)"/>
+                                    <path data-id="118" d="M15 68 C15 50 25 42 40 42 C55 42 65 50 65 68" stroke="#00ff41" stroke-width="1.5" fill="rgba(0,255,65,0.03)"/>
+                                    <text data-id="119" x="40" y="74" text-anchor="middle" fill="#00ff41" font-family="Share Tech Mono, monospace" font-size="7" opacity="0.6">M.N.PEREZ</text>
                                 </svg>
                             </div>
                         </div>
 
                         <!-- Author Info -->
-                        <div data-id="117" class="text-center md:text-left">
-                            <h3 data-id="118" id="author-name-d5i3" class="font-mono text-neon-green text-xl md:text-2xl mb-2 glow-green tracking-wide">Marcus Perez</h3>
-                            <p data-id="119" class="font-mono text-neon-cyan/70 text-xs md:text-sm mb-5 tracking-wider">Cybersecurity Researcher &amp; Ethical Hacker</p>
-                            <p data-id="120" class="text-text-primary text-sm md:text-base leading-relaxed mb-8 max-w-xl">
-                                Marcus Perez is a cybersecurity researcher and ethical hacker passionate about making bug bounty hunting accessible to everyone. With years of hands-on experience in vulnerability research, Marcus brings practical, real-world insights to every page. His mission is to empower the next generation of security researchers to make the internet safer — one bug at a time.
+                        <div data-id="120" class="text-center md:text-left flex-1">
+                            <h3 data-id="121" id="author-name-d5i3" class="font-mono text-neon-green text-xl md:text-2xl mb-2 glow-green tracking-wide">Marcus N. Perez</h3>
+                            <p data-id="122" class="font-mono text-neon-cyan/70 text-xs md:text-sm mb-5 tracking-wider">Cybersecurity Researcher &amp; Ethical Hacker</p>
+                            <p data-id="123" class="text-text-primary text-sm md:text-base leading-relaxed mb-6 max-w-xl">
+                                I'm a cybersecurity researcher and author specializing in offensive security, vulnerability research, and bug bounty hunting. Passionate about making security knowledge accessible — breaking down complex attack techniques into actionable methodologies every researcher can apply. Active bug bounty hunter across major public and private programs, focused on web application security, API vulnerabilities, and network penetration testing. Based in Utah, USA.
                             </p>
 
+                            <!-- Credentials Row -->
+                            <div data-id="124" class="flex flex-wrap gap-2 mb-6 justify-center md:justify-start">
+                                <span data-id="125" class="credential-badge rounded px-3 py-1.5 font-mono text-xs text-neon-cyan/90 flex items-center gap-1.5">
+                                    <i data-id="126" data-lucide="award" class="w-3.5 h-3.5"></i>
+                                    CompTIA A+ Certified
+                                </span>
+                                <span data-id="127" class="credential-badge rounded px-3 py-1.5 font-mono text-xs text-neon-cyan/90 flex items-center gap-1.5">
+                                    <i data-id="128" data-lucide="badge-check" class="w-3.5 h-3.5"></i>
+                                    ITIL® 4 Foundation
+                                </span>
+                                <span data-id="129" class="credential-badge rounded px-3 py-1.5 font-mono text-xs text-neon-cyan/90 flex items-center gap-1.5">
+                                    <i data-id="130" data-lucide="graduation-cap" class="w-3.5 h-3.5"></i>
+                                    SNHU — Cybersecurity
+                                </span>
+                            </div>
+
                             <!-- Social Links -->
-                            <div data-id="121" class="flex gap-3 justify-center md:justify-start flex-wrap">
-                                <button data-id="122" id="social-twitter-e7l4" class="social-btn flex items-center gap-2 px-4 py-2.5 rounded font-mono text-neon-cyan text-xs md:text-sm min-h-[44px] cursor-pointer" aria-label="Twitter">
-                                    <i data-id="123" data-lucide="twitter" class="w-4 h-4"></i>
-                                    <span data-id="124">@marcusperez</span>
-                                </button>
-                                <button data-id="125" id="social-linkedin-g9m6" class="social-btn flex items-center gap-2 px-4 py-2.5 rounded font-mono text-neon-cyan text-xs md:text-sm min-h-[44px] cursor-pointer" aria-label="LinkedIn">
-                                    <i data-id="126" data-lucide="linkedin" class="w-4 h-4"></i>
-                                    <span data-id="127">LinkedIn</span>
-                                </button>
-                                <button data-id="128" id="social-github-a2o8" class="social-btn flex items-center gap-2 px-4 py-2.5 rounded font-mono text-neon-cyan text-xs md:text-sm min-h-[44px] cursor-pointer" aria-label="GitHub">
-                                    <i data-id="129" data-lucide="github" class="w-4 h-4"></i>
-                                    <span data-id="130">GitHub</span>
-                                </button>
+                            <div data-id="131" class="flex gap-3 justify-center md:justify-start flex-wrap">
+                                <a data-id="132" id="social-linkedin-g9m6" href="https://www.linkedin.com/in/marcus-perez1/" target="_blank" rel="noopener noreferrer" class="social-btn flex items-center gap-2 px-4 py-2.5 rounded font-mono text-neon-cyan text-xs md:text-sm min-h-[44px]" aria-label="LinkedIn">
+                                    <i data-id="133" data-lucide="linkedin" class="w-4 h-4"></i>
+                                    <span data-id="134">LinkedIn</span>
+                                </a>
+                                <a data-id="135" id="social-github-a2o8" href="https://github.com/marcusnp11-cyber" target="_blank" rel="noopener noreferrer" class="social-btn flex items-center gap-2 px-4 py-2.5 rounded font-mono text-neon-cyan text-xs md:text-sm min-h-[44px]" aria-label="GitHub">
+                                    <i data-id="136" data-lucide="github" class="w-4 h-4"></i>
+                                    <span data-id="137">GitHub</span>
+                                </a>
+                                <a data-id="138" href="https://marcusnp11-cyber.github.io/marcusnp11-cyber/" target="_blank" rel="noopener noreferrer" class="social-btn flex items-center gap-2 px-4 py-2.5 rounded font-mono text-neon-cyan text-xs md:text-sm min-h-[44px]" aria-label="Portfolio">
+                                    <i data-id="139" data-lucide="globe" class="w-4 h-4"></i>
+                                    <span data-id="140">Portfolio</span>
+                                </a>
+                                <a data-id="141" href="https://www.amazon.com/dp/B0CXWY6F7K" target="_blank" rel="noopener noreferrer" class="social-btn flex items-center gap-2 px-4 py-2.5 rounded font-mono text-neon-green text-xs md:text-sm min-h-[44px] border-neon-green/20 hover:border-neon-green" aria-label="Get the Book on Amazon">
+                                    <i data-id="142" data-lucide="book-open" class="w-4 h-4"></i>
+                                    <span data-id="143">Amazon</span>
+                                </a>
                             </div>
                         </div>
                     </div>
 
+                    <!-- Quote Card -->
+                    <div data-id="144" class="mt-8 quote-card rounded-lg p-5 md:p-6 border border-neon-green/10">
+                        <p data-id="145" class="font-mono text-neon-green/90 text-sm md:text-base leading-relaxed pl-4">
+                            <span data-id="146" class="text-neon-green/60">&gt;</span> "The best vulnerability report isn't the one with the most technical detail — it's the one that gets fixed."
+                        </p>
+                        <p data-id="147" class="font-mono text-text-muted text-xs mt-3 pl-4">— Marcus Perez</p>
+                        <div data-id="148" class="mt-3 pl-4 font-mono text-xs text-text-muted/50">
+                            <span data-id="149" class="text-neon-green/30">&gt;</span> stdout | quote.sh
+                        </div>
+                    </div>
+
                     <!-- Terminal decoration -->
-                    <div data-id="131" class="mt-8 pt-6 border-t border-white/5 font-mono text-xs text-text-muted">
-                        <span data-id="132" class="text-neon-green/40">uid=1000(marcus)</span> gid=1000(hackers) groups=1000(hackers),27(sudo),1001(bounty-hunters)
+                    <div data-id="150" class="mt-8 pt-6 border-t border-white/5 font-mono text-xs text-text-muted">
+                        <span data-id="151" class="text-neon-green/40">uid=1000(marcus)</span> gid=1000(hackers) groups=1000(hackers),27(sudo),1001(bounty-hunters)
                     </div>
                 </div>
             </div>
@@ -502,51 +571,77 @@
     </main>
 
     <!-- ===================== FOOTER ===================== -->
-    <footer data-id="133" id="footer-section-t6v1" class="relative z-10 border-t border-neon-green/10 bg-bg-card/50 py-10 md:py-14">
-        <div data-id="134" class="max-w-5xl mx-auto px-5 md:px-6 text-center">
-            <p data-id="135" class="font-mono text-neon-green/60 text-xs md:text-sm mb-3 tracking-wider">
+    <footer data-id="152" id="footer-section-t6v1" class="relative z-10 border-t border-neon-green/10 bg-bg-card/50 py-10 md:py-14">
+        <div data-id="153" class="max-w-5xl mx-auto px-5 md:px-6 text-center">
+            <p data-id="154" class="font-mono text-neon-green/60 text-xs md:text-sm mb-3 tracking-wider">
                 The Guidebook to The Fundamentals of Bug Bounty Hunting
             </p>
-            <p data-id="136" class="text-text-muted text-xs md:text-sm mb-6">
-                &copy; 2024 Marcus Perez. All rights reserved.
+            <p data-id="155" class="text-text-muted text-xs md:text-sm mb-4">
+                &copy; 2026 Marcus Perez. All rights reserved.
             </p>
-            <p data-id="137" class="font-mono text-text-muted/40 text-xs mb-6">
-                <span data-id="138" class="text-neon-green/30">&gt;</span> Connection closed.
+            <div data-id="156" class="flex items-center justify-center gap-4 mb-6">
+                <a data-id="157" href="https://github.com/marcusnp11-cyber" target="_blank" rel="noopener noreferrer" class="font-mono text-neon-cyan/60 text-xs hover:text-neon-cyan transition-colors flex items-center gap-1.5">
+                    <i data-id="158" data-lucide="github" class="w-3.5 h-3.5"></i>
+                    marcusnp11-cyber
+                </a>
+                <span data-id="159" class="text-text-muted/30">|</span>
+                <a data-id="160" href="https://www.linkedin.com/in/marcus-perez1/" target="_blank" rel="noopener noreferrer" class="font-mono text-neon-cyan/60 text-xs hover:text-neon-cyan transition-colors flex items-center gap-1.5">
+                    <i data-id="161" data-lucide="linkedin" class="w-3.5 h-3.5"></i>
+                    LinkedIn
+                </a>
+                <span data-id="162" class="text-text-muted/30">|</span>
+                <a data-id="163" href="https://www.amazon.com/dp/B0CXWY6F7K" target="_blank" rel="noopener noreferrer" class="font-mono text-neon-green/60 text-xs hover:text-neon-green transition-colors flex items-center gap-1.5">
+                    <i data-id="164" data-lucide="book-open" class="w-3.5 h-3.5"></i>
+                    Get the Book
+                </a>
+            </div>
+            <p data-id="165" class="font-mono text-text-muted/40 text-xs mb-6">
+                <span data-id="166" class="text-neon-green/30">&gt;</span> Connection closed.<span data-id="167" class="blink-cursor" style="font-size:0.75rem"></span>
             </p>
-            <div data-id="139" class="w-12 h-px bg-neon-green/20 mx-auto mb-4"></div>
-            <p data-id="140" class="text-text-muted/50 text-xs">Made by Copilot</p>
+            <div data-id="168" class="w-12 h-px bg-neon-green/20 mx-auto mb-4"></div>
+            <p data-id="169" class="text-text-muted/50 text-xs">Made by Copilot</p>
         </div>
     </footer>
 
     <!-- ===================== SCRIPTS ===================== -->
     <script>
-        // ---- Lucide Icons (progressive enhancement) ----
-        if (typeof lucide !== "undefined" && typeof lucide.createIcons === "function") {
-            lucide.createIcons();
+        // ---- Initialize Lucide Icons ----
+        function initLucideIcons() {
+            if (typeof lucide !== "undefined" && typeof lucide.createIcons === "function") {
+                lucide.createIcons();
+                return true;
+            }
+            return false;
+        }
+
+        if (!initLucideIcons()) {
+            document.addEventListener('DOMContentLoaded', function() {
+                if (!initLucideIcons()) {
+                    window.addEventListener('load', function() {
+                        initLucideIcons();
+                    });
+                }
+            });
         }
 
         // ---- Matrix Rain Background ----
         (function initMatrixRain() {
-            const canvas = document.getElementById('matrix-canvas-bg');
+            var canvas = document.getElementById('matrix-canvas-bg');
             if (!canvas) return;
-            const ctx = canvas.getContext('2d');
+            var ctx = canvas.getContext('2d');
+
+            var columns, drops, fontSize = 14;
 
             function resize() {
                 canvas.width = window.innerWidth;
                 canvas.height = window.innerHeight;
+                columns = Math.floor(canvas.width / fontSize);
+                drops = new Array(columns).fill(1);
             }
             resize();
             window.addEventListener('resize', resize);
 
-            const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%^&*(){}[]|;:<>?/~`';
-            const fontSize = 14;
-            let columns = Math.floor(canvas.width / fontSize);
-            let drops = new Array(columns).fill(1);
-
-            window.addEventListener('resize', function() {
-                columns = Math.floor(canvas.width / fontSize);
-                drops = new Array(columns).fill(1);
-            });
+            var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%^&*(){}[]|;:<>?/~`';
 
             function draw() {
                 ctx.fillStyle = 'rgba(10, 10, 15, 0.05)';
@@ -555,8 +650,8 @@
                 ctx.fillStyle = '#00ff41';
                 ctx.font = fontSize + 'px Share Tech Mono, monospace';
 
-                for (let i = 0; i < drops.length; i++) {
-                    const text = chars[Math.floor(Math.random() * chars.length)];
+                for (var i = 0; i < drops.length; i++) {
+                    var text = chars[Math.floor(Math.random() * chars.length)];
                     ctx.globalAlpha = Math.random() * 0.5 + 0.1;
                     ctx.fillText(text, i * fontSize, drops[i] * fontSize);
 
@@ -573,9 +668,9 @@
 
         // ---- Mobile Menu Toggle ----
         (function initMobileMenu() {
-            const menuBtn = document.getElementById('mobile-menu-btn-w2e5');
-            const closeBtn = document.getElementById('mobile-menu-close-z7n1');
-            const mobileMenu = document.getElementById('mobile-menu-k4f8');
+            var menuBtn = document.getElementById('mobile-menu-btn-w2e5');
+            var closeBtn = document.getElementById('mobile-menu-close-z7n1');
+            var mobileMenu = document.getElementById('mobile-menu-k4f8');
             if (!menuBtn || !closeBtn || !mobileMenu) return;
 
             menuBtn.addEventListener('click', function() {
@@ -588,8 +683,7 @@
                 mobileMenu.classList.remove('mobile-menu-open');
             });
 
-            // Close on link click
-            const mobileLinks = mobileMenu.querySelectorAll('.mobile-nav-link');
+            var mobileLinks = mobileMenu.querySelectorAll('.mobile-nav-link');
             mobileLinks.forEach(function(link) {
                 link.addEventListener('click', function() {
                     mobileMenu.classList.add('hidden');
@@ -600,10 +694,10 @@
 
         // ---- Scroll Fade-In Sections ----
         (function initScrollFade() {
-            const sections = document.querySelectorAll('.fade-section');
+            var sections = document.querySelectorAll('.fade-section');
             if (!sections.length) return;
 
-            const observer = new IntersectionObserver(function(entries) {
+            var observer = new IntersectionObserver(function(entries) {
                 entries.forEach(function(entry) {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('visible');
@@ -616,20 +710,9 @@
             });
         })();
 
-        // ---- Learn More smooth scroll ----
-        (function initCTAs() {
-            const learnMoreBtn = document.getElementById('cta-learn-more-n6k9');
-            if (learnMoreBtn) {
-                learnMoreBtn.addEventListener('click', function() {
-                    const aboutSection = document.getElementById('about-section-m3p7');
-                    if (aboutSection) aboutSection.scrollIntoView({ behavior: 'smooth' });
-                });
-            }
-        })();
-
         // ---- Navbar background on scroll ----
         (function initNavScroll() {
-            const navbar = document.getElementById('navbar-j8k2');
+            var navbar = document.getElementById('navbar-j8k2');
             if (!navbar) return;
             window.addEventListener('scroll', function() {
                 if (window.scrollY > 50) {
